@@ -1,0 +1,65 @@
+.player-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.player-bar__track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.player-bar__cover {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient);
+}
+
+.player-bar__title,
+.player-bar__artist,
+.player-bar__note {
+  margin: 0;
+}
+
+.player-bar__title {
+  font-weight: 600;
+}
+
+.player-bar__artist,
+.player-bar__note {
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.player-bar__play {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  cursor: pointer;
+}
+
+.player-bar__play:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .player-bar {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .player-bar__note {
+    display: none;
+  }
+}
