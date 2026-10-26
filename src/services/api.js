@@ -31,12 +31,13 @@ api.interceptors.response.use(
 );
 
 export function getErrorMessage(error) {
-  if (!error.response) {
-    return 'No pudimos conectar con el servidor. Revisá tu conexión.';
-  }
-  return error.response.data?.error || 'Ocurrió un error inesperado.';
-}
+  const data = error.response?.data;
 
+  if (!error.response || (error.response.status >= 500 && !data?.error)) {
+    return 'No pudimos conectar con el servidor. Probá de nuevo en un rato.';
+  }
+  return data?.error || 'Ocurrió un error inesperado.';
+}
 export default api;
 
 
